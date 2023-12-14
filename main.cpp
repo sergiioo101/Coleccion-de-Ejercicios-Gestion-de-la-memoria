@@ -50,3 +50,11 @@ int main() {
     _tcscpy_s((TCHAR*)pBuf, SIZE, _T("Hello, child process!"));
     // Espera a que el hilo secundario termine
     WaitForSingleObject(hThread, INFINITE);
+    // Cierra los manejadores
+    CloseHandle(hThread);
+
+    UnmapViewOfFile(pBuf);
+    CloseHandle(hMapFile);
+
+    return 0;
+}
