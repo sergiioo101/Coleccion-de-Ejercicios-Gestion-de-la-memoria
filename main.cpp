@@ -37,3 +37,12 @@ int main() {
         CloseHandle(hMapFile);
         return 1;
     }
+// Declaración de la función ChildThread
+    auto hThread = (HANDLE)_beginthreadex(nullptr, 0, ChildThread, (void*)pBuf, 0, nullptr);
+    if (hThread == nullptr) {
+        _tprintf(_T("No se pudo crear el hilo secundario.\n"));
+
+        UnmapViewOfFile(pBuf);
+        CloseHandle(hMapFile);
+        return 1;
+    }
