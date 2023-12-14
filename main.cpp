@@ -58,3 +58,8 @@ int main() {
 
     return 0;
 }
+// Implementación de la función ChildThread
+unsigned int __stdcall ChildThread(void* pBuf) {
+    _tprintf(_T("Child reads: %s\n"), (TCHAR*)pBuf);
+    return 0;
+}
