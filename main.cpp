@@ -48,3 +48,5 @@ int main() {
     }
     // Proceso padre escribe en la memoria compartida
     _tcscpy_s((TCHAR*)pBuf, SIZE, _T("Hello, child process!"));
+    // Espera a que el hilo secundario termine
+    WaitForSingleObject(hThread, INFINITE);
