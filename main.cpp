@@ -46,3 +46,5 @@ int main() {
         CloseHandle(hMapFile);
         return 1;
     }
+    // Proceso padre escribe en la memoria compartida
+    _tcscpy_s((TCHAR*)pBuf, SIZE, _T("Hello, child process!"));
